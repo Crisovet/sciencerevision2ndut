@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Science Class VII – Mnemonics &amp; Keyword Chain</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3f6fb;--ink:#1d2b4f;--mut:#5d6b8c;--card:#fff;--line:#cdd6e8;--key:#ffd84d;--keyi:#3a2d00;--ok:#1e9e5a;--bad:#d64545;--S:#9a5b2e;--R:#d6456b;--M:#2f6fd6;box-sizing:border-box}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121a2e;--ink:#e8edf9;--mut:#9aa7c7;--card:#1c2644;--line:#34426b;--key:#f2c230;--keyi:#2b2100;--S:#d08a55;--R:#ee6f93;--M:#6ea0f5}}
+:root[data-theme="dark"]{--bg:#121a2e;--ink:#e8edf9;--mut:#9aa7c7;--card:#1c2644;--line:#34426b;--key:#f2c230;--keyi:#2b2100;--S:#d08a55;--R:#ee6f93;--M:#6ea0f5}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Fredoka',system-ui,sans-serif;min-height:100vh;min-height:100dvh;touch-action:manipulation;overflow-x:hidden}
+main{max-width:640px;margin:0 auto;padding:max(12px,env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) calc(32px + env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left))}
+h1{font-size:1.55rem;margin:6px 0 2px;line-height:1.2}.sub{margin:0 0 12px;color:var(--mut);font-size:.95rem}
+button{font:inherit;color:inherit;cursor:pointer;touch-action:manipulation}
+.top{display:flex;justify-content:space-between;align-items:center;gap:8px;position:sticky;top:0;z-index:10;background:var(--bg);padding:8px 0 6px}
+.hud{font-weight:600;white-space:nowrap}
+.back{border:2px solid var(--line);background:var(--card);border-radius:22px;padding:8px 16px;min-height:42px}
+.prog{height:8px;background:var(--line);border-radius:8px;overflow:hidden;margin:6px 0 10px}.prog i{display:block;height:100%;background:var(--c);transition:width .4s}
+.tt{font-size:1.25rem;font-weight:600;margin-top:4px;line-height:1.25}.tt small{display:block;font-size:.85rem;font-weight:500;color:var(--c)}
+.chap{display:flex;flex-direction:column;gap:2px;width:100%;text-align:left;background:var(--card);border:3px solid var(--c);border-radius:16px;padding:16px 18px;margin:10px 0;font-size:1.2rem;min-height:64px}
+.chap span{font-size:.9rem;color:var(--mut)}
+.sec{margin:18px 0 4px;font-size:1.05rem;font-weight:600;color:var(--c);display:flex;justify-content:space-between;align-items:center;gap:8px}
+.sec small{font-weight:500;color:var(--mut);font-size:.85rem}
+.row{display:flex;gap:12px;align-items:center;width:100%;text-align:left;background:var(--card);border:2px solid var(--line);border-radius:12px;padding:12px 14px;margin:8px 0;font-weight:500;font-size:1.02rem;min-height:52px}
+.row:active{border-color:var(--c)}.row:disabled{opacity:.5;cursor:not-allowed}.row.ok{border-color:var(--ok)}.row>span{width:22px;text-align:center;flex:none}
+.row b{margin-left:auto;color:#e0a100;letter-spacing:2px;white-space:nowrap}
+.banner{background:var(--card);border:2px solid var(--ok);border-radius:14px;padding:12px 14px;margin:10px 0;line-height:1.45}
+.banner.wait{border-color:var(--line)}
+.who{font-weight:500;margin:0 0 6px}.link{background:none;border:0;color:var(--M);text-decoration:underline;padding:8px 6px;min-height:40px}
+.q{font-size:1.1rem;font-weight:500;margin:10px 0;line-height:1.5}.q u{text-decoration:none;background:var(--key);color:var(--keyi);padding:1px 8px;border-radius:8px;font-weight:600}
+.list{background:var(--card);border-radius:14px;padding:12px 16px 12px 36px;margin:0 0 12px;border-left:7px solid var(--c);line-height:1.8;font-weight:500}
+.ask{margin:14px 0 8px;color:var(--mut);font-weight:500}.ask span{color:var(--ink);font-weight:600}
+.opts{display:grid;gap:10px}
+.opt{background:var(--card);border:2px solid var(--line);border-radius:12px;padding:14px;text-align:left;font-weight:600;font-size:1.05rem;min-height:54px}
+.opt:active{border-color:var(--c)}
+.opt small{display:block;font-weight:400;font-size:.88rem;margin-top:4px}
+.opt small.em2{font-size:1.4rem;letter-spacing:4px;margin-top:6px}
+.opt.bad{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 14%,var(--card));animation:sh .3s;pointer-events:none}
+.opt.good{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 18%,var(--card))}
+@keyframes sh{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.chips{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.chip{background:var(--card);border:2px solid var(--line);border-radius:12px;padding:12px 10px;font-weight:600;min-height:52px;line-height:1.2}
+.chip:active{border-color:var(--c)}.chip.bad{border-color:var(--bad);animation:sh .3s}.chip:disabled{opacity:.25;pointer-events:none}
+.res,.end{background:var(--card);border-radius:16px;padding:14px;margin-top:14px;border-top:6px solid var(--ok)}
+.res h3,.end h3{margin:0 0 6px}.res p,.end p{margin:8px 0;line-height:1.5}
+.board{display:flex;flex-wrap:wrap;gap:12px 6px;align-items:flex-start;background:var(--card);border-radius:14px;padding:12px}.res .board{padding:0}
+.pr{display:flex;flex-direction:column;align-items:center;gap:6px;animation:pop .4s backwards;animation-delay:calc(var(--n)*.1s)}
+.em{font-size:2.3rem;line-height:1.1}
+.w{background:var(--key);color:var(--keyi);border-radius:10px;padding:6px 11px;font-weight:500;font-size:1rem;box-shadow:0 3px 0 rgba(0,0,0,.18)}
+.it{border:2px dashed var(--c);border-radius:10px;padding:4px 8px;font-size:.88rem;min-width:44px;text-align:center}.it.fill{border-style:solid;background:color-mix(in srgb,var(--ok) 18%,var(--card));animation:pop .3s}
+.w u,.it u{text-decoration:none;font-weight:700;font-size:1.2em}.it u{color:var(--c)}
+@keyframes pop{from{transform:translateY(-8px) scale(.6);opacity:0}to{transform:none;opacity:1}}
+.hid .w,.hid .em{visibility:hidden}
+.top{flex-wrap:wrap}
+.abbr{flex-basis:100%;text-align:center;font-size:2.4rem;font-weight:600;letter-spacing:.22em;padding:2px 0 2px .22em;line-height:1.15;background:var(--key);color:var(--keyi);border-radius:14px;box-shadow:0 3px 0 rgba(0,0,0,.18)}
+@media(max-width:380px){.abbr{font-size:2rem}}
+.mlay{display:grid;grid-template-columns:108px minmax(0,1fr);gap:10px;align-items:start}
+.mlay.solo{grid-template-columns:minmax(0,1fr)}.mlay.smin{grid-template-columns:54px minmax(0,1fr)}
+.mmain{min-width:0}
+.side{position:sticky;top:124px;max-height:calc(100vh - 136px);max-height:calc(100dvh - 136px);overflow-y:auto;display:flex;flex-direction:column;gap:8px;padding-top:6px;min-width:0}
+.sbt{border:2px solid var(--line);background:var(--card);border-radius:10px;padding:6px 4px;font-size:.72rem;font-weight:600;min-height:38px;line-height:1.1}
+.mlay.smin .sbt .l{display:none}
+.side .mc{padding:6px 4px;gap:3px}.side .mc small{font-size:.62rem}
+.side .ma{font-size:1.05rem;letter-spacing:.06em;padding-left:.06em}.side .ms{font-size:.7rem}
+.mlay.smin .side .mc small,.mlay.smin .side .ms{display:none}
+.mlay.smin .side .ma{font-size:.8rem;letter-spacing:0;padding-left:0}
+@media(min-width:600px){.mlay{grid-template-columns:170px minmax(0,1fr)}.mlay.smin{grid-template-columns:60px minmax(0,1fr)}.side .ma{font-size:1.5rem}.side .ms{font-size:.85rem}.side .mc small{font-size:.75rem}}
+.mw{border-top:1px dashed var(--line);margin-top:4px;padding-top:6px;text-align:left;font-size:.82rem;line-height:1.35;display:flex;flex-direction:column;gap:3px}
+.mw b{color:var(--c)}
+.mgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:8px 0}
+.mc{background:var(--card);border:2px solid var(--line);border-top:5px solid var(--c);border-radius:12px;padding:10px 8px;text-align:center;min-width:0;display:flex;flex-direction:column;gap:4px}
+.mc small{color:var(--mut);font-size:.78rem;line-height:1.2}
+.ma{font-size:1.7rem;font-weight:600;letter-spacing:.12em;padding-left:.12em;background:var(--key);color:var(--keyi);border-radius:10px;line-height:1.3;overflow-wrap:anywhere}
+.ms{font-size:.92rem;font-weight:500;line-height:1.3;overflow-wrap:anywhere}
+.go{background:var(--c);color:#fff;border:0;border-radius:22px;padding:12px 22px;font-weight:600;margin:12px 8px 0 0;min-height:46px}
+.big{font-size:2.2rem;font-weight:600;margin:6px 0}.stars{color:#e0a100;letter-spacing:2px}
+/* keyword chain */
+.kboard{background:var(--card);border-radius:16px;padding:14px 10px;display:flex;flex-wrap:wrap;align-items:center;row-gap:18px;min-height:110px}
+.node{background:var(--key);color:var(--keyi);font-weight:600;padding:8px 12px;border-radius:12px;box-shadow:0 3px 0 rgba(0,0,0,.18);animation:pop .35s;font-size:.98rem}
+.node.root{background:var(--c);color:#fff;font-size:1.05rem}
+.arr{display:flex;flex-direction:column;align-items:center;min-width:72px;padding:0 4px}
+.arr b{font-size:.78rem;font-weight:500;color:var(--mut);text-align:center;line-height:1.1;margin-bottom:3px}
+.arr .ln{position:relative;width:100%;height:3px;background:var(--ink);border-radius:2px}
+.arr .ln:after{content:"";position:absolute;right:-2px;top:-5px;border-left:10px solid var(--ink);border-top:6.5px solid transparent;border-bottom:6.5px solid transparent}
+.arr.q b{color:var(--c);font-weight:600;font-size:.92rem}
+.arr.q .ln{background:repeating-linear-gradient(90deg,var(--c) 0 6px,transparent 6px 10px)}.arr.q .ln:after{border-left-color:var(--c)}
+/* modal */
+[hidden]{display:none!important}
+.ov{position:fixed;inset:0;z-index:50;background:rgba(10,16,28,.65);display:grid;place-items:center;padding:16px;overflow-y:auto}
+.mod{width:min(440px,100%);background:var(--card);border:3px solid var(--ink);border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:12px}
+.mod h2{margin:0}.mod p{margin:0;color:var(--mut)}.mod label{display:flex;flex-direction:column;gap:4px;font-weight:500;color:var(--mut);font-size:.9rem}
+.mod input{font:inherit;font-size:16px;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:10px;padding:11px 12px;min-width:0;width:100%}
+.ph{display:flex;border:2px solid var(--line);border-radius:10px;overflow:hidden;background:var(--bg)}.ph i{font-style:normal;padding:11px 12px;background:var(--key);color:var(--keyi);font-weight:600}.ph input{border:0;border-radius:0;background:transparent}
+.err{color:var(--bad)!important;font-weight:600;min-height:1.3em}
+.mod .go{background:var(--M);margin:6px 0 0;padding:14px 18px;font-size:1.1rem;width:100%}
+@media(max-width:380px){.em{font-size:2rem}.w{font-size:.92rem;padding:5px 9px}.arr{min-width:62px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body><main id="app"></main>
+<div class="ov" id="ov" hidden><form class="mod" id="f" novalidate><h2>Before you begin</h2><p>Enter your details to start.</p><label>Name<input id="fn" autocomplete="name" placeholder="Full name"></label><label>Class<input id="fc" inputmode="numeric" maxlength="2" placeholder="e.g. 7"></label><label>Phone Number<span class="ph"><i>+91</i><input id="fp" type="tel" inputmode="numeric" maxlength="10" placeholder="10-digit mobile number"></span></label><p class="err" id="fe" role="alert"></p><button class="go">Start</button></form></div>
+<script>
+const CH={S:["Soil","var(--S)"],R:["Respiration","var(--R)"],M:["Motion and Time","var(--M)"]};
+
+/* ---------- Mnemonic data ---------- */
+const RAW_M=[
+"S~Soil layers~Name the soil layers from the surface downwards.~Topsoil|Subsoil|Parent rock|Bedrock~Tall Sheep Pack Bags/🦒 🐑 📦 👜;Tiny Squirrels Plant Beans/🤏 🐿️ 🌱 🫘;Tigers Sail Paper Boats/🐯 ⛵ 📄 🚤;Ten Silly Penguins Bounce/🔟 🤪 🐧 🏀;Tomatoes Sizzle Perfectly Brown/🍅 🔥 👌 🟤",
+"S~Soil particles~Arrange soil particles from smallest to largest.~Clay|Silt|Sand|Gravel~Cats Snore Softly Gently/🐱 😴 🧸 🤲;Clever Squirrels Share Grapes/🧠 🐿️ 🤝 🍇;Crabs Sing Silly Games/🦀 🎤 🤪 🎮;Cute Seals Splash Gently/🥰 🦭 💦 🤲;Camels Sip Sweet Grapes/🐪 🥤 🍬 🍇",
+"S~Types of soil~Name the three main types of soil.~Sandy|Clayey|Loamy~Sunny Cats Laugh/☀️ 🐱 😂;Sheep Chew Leaves/🐑 😋 🍃;Snakes Climb Ladders/🐍 🧗 🪜;Santa Carries Lollipops/🎅 🛍️ 🍭;Sparrows Chirp Loudly/🐦 🎶 📢",
+"S~Preventing soil erosion~List the methods of preventing soil erosion.~Afforestation|Terrace farming|Dams|Overgrazing control~Ants Tickle Dancing Owls/🐜 🪶 💃 🦉;Apples Taste Delicious Often/🍎 👅 😋 🔁;Astronauts Travel Deep Oceans/👨‍🚀 🚀 🕳️ 🌊;Airplanes Take Dolphins Overseas/✈️ 🎒 🐬 🌍;Aliens Tap Drums Often/👽 👆 🥁 🔁",
+"R~Path of air~Trace the path of air in humans.~Nostrils|Nasal cavity|Windpipe|Bronchi|Lungs~Nobody Naps While Babies Laugh/🙅 😴 ⏳ 👶 😂;Nine Naughty Whales Blow Lemons/9️⃣ 😈 🐋 💨 🍋;Nice Nurses Wear Blue Lab-coats/😊 👩‍⚕️ 👕 🔵 🥼;Noisy Neighbours Watch Bollywood Lately/🔊 🏘️ 📺 🎬 ⏰;Nimble Newts Win Big Laughs/🤸 🦎 🏆 🎉 😂",
+"R~Aerobic respiration~Remember the order of terms in aerobic respiration.~Glucose|Oxygen|Carbon dioxide|Water|Energy~Giant Owls Catch Wet Eels/🐘 🦉 🧤 💧 🐍;Green Octopuses Chase Wild Elephants/🟢 🐙 🏃 🐗 🐘;Goats Order Cold Water Everyday/🐐 🛒 🧊 🚰 📅;Girls Open Crispy Wafers Eagerly/👧 🔓 🍟 🧇 🤩;Gorillas Open Coconuts With Elbows/🦍 🔓 🥥 🤝 💪",
+"R~Respiration in plants~Name the plant parts through which respiration takes place.~Roots|Stems|Leaves~Rabbits Sleep Late/🐰 😴 ⏰;Robots Sing Loudly/🤖 🎤 📢;Rain Soaks Lawns/🌧️ 💦 🌱;Roses Smell Lovely/🌹 👃 😍;Rivers Sparkle Lazily/🏞️ ✨ 😪",
+"M~Types of motion~Name the types of motion.~Linear|Circular|Periodic|Non-periodic~Little Cats Play Nicely/🐣 🐱 ⚽ 😊;Lions Chase Playful Newts/🦁 🏃 🎈 🦎;Lazy Crows Peck Nuts/😪 🐦 🐤 🥜;Laughing Clowns Paint Noses/😂 🤡 🎨 👃;Ladybugs Crawl Past Nests/🐞 🐛 ➡️ 🪺",
+"M~Units of time~Arrange units of time from smallest to largest.~Second|Minute|Hour|Day|Year~Silly Monkeys Hug Dancing Yaks/🤪 🐒 🤗 💃 🐂;Smart Mice Hide Dry Yams/🧠 🐭 🙈 🏜️ 🍠;Sad Mummies Hum Dull Yodels/😢 🧟 🎶 😐 🎤;Sharks Munch Hot Dogs Yesterday/🦈 😋 🔥 🌭 📅;Sleepy Mangoes Hang Down Yonder/😴 🥭 🧗 ⬇️ 🌅",
+"M~Early time devices~Name the devices used in earlier days to measure time.~Sundial|Sand clock|Water clock|Candle clock~Sleepy Snakes Wear Caps/😴 🐍 👕 🧢;Sunny Skies Warm Cats/☀️ 🌤️ 🔥 🐱;Super Spiders Weave Carpets/🦸 🕷️ 🧵 🧺;Small Sharks Win Cups/🤏 🦈 🏆 🥤;Stars Shine With Colour/⭐ ✨ 🤝 🌈",
+"M~Parts of a simple pendulum~Name the parts of a simple pendulum.~Bob|String|Stand~Brave Sheep Swim/🦁 🐑 🏊;Big Seals Sing/🐋 🦭 🎤;Bees Sip Soup/🐝 🥤 🍲;Baby Sparrows Sleep/👶 🐦 😴;Butterflies Sip Syrup/🦋 🥤 🍯"
+];
+const M=RAW_M.map(r=>{const p=r.split("~");return{c:p[0],t:p[1],q:p[2],it:p[3].split("|"),m:p[4].split(";").map(x=>{const a=x.split("/");return{w:a[0].split(" "),e:a[1].split(" ")}})}});
+
+/* ---------- Keyword chain data ---------- */
+const RAW_K=[
+"S~Soil~What is soil?~is the|uppermost layer|lowest layer|innermost core|outer atmosphere;of|Earth’s crust|the ocean|the mantle|the sky;in which|plants grow|lava flows|ice forms|fossils burn",
+"S~Weathering~What is weathering?~is the continuous|breakdown|building|melting|freezing;of|rocks|metals|plants|clouds;into|smaller pieces|bigger boulders|gases|liquids;has two types|physical and chemical|aerobic and anaerobic|fast and slow|hot and cold",
+"S~Humus~What is humus?~is|organic matter|sand|clay|gravel;formed from decomposed|dead plants and animals|crushed rocks|silt and sand|fresh water;which increases|soil fertility|soil erosion|rock hardness|waterlogging",
+"S~Topsoil~Order of soil layers~lies above|Subsoil|Bedrock|Parent rock|Water table;lies above|Parent-rock layer|Topsoil|Water table|Clay;lies above|Bedrock|Topsoil|Subsoil|Silt;which is|non-porous solid rock|soft and porous|rich in humus|full of roots",
+"S~Loamy soil~What is loamy soil?~contains|sand, silt and clay|only sand|only gravel|only clay;in|balanced proportions|unequal heaps|layers only|a single lump;along with|humus|plastic|salt|pesticides;so it is best for|many crops|no crops|only cactus|only paddy",
+"S~Percolation~What is percolation?~is the|downward movement|upward movement|sideways flow|freezing;of|water|air|heat|light;through|spaces between soil particles|solid bedrock|plant leaves|the sky",
+"S~Soil erosion~What is soil erosion?~is the|removal|addition|colouring|pollution;of|topsoil|bedrock|humus only|the sea;by|wind and running water|earthworms|sunlight alone|tiny bacteria",
+"S~Waterlogging~What is waterlogging?~occurs when|excess water|too little water|extra air|frozen soil;fills|spaces in soil|plant leaves|the sky|rocks above;reducing|air for roots|soil particles|rainfall|sunlight",
+"S~Nitrogen fixation~What is nitrogen fixation?~converts|atmospheric nitrogen|oxygen|carbon dioxide|water vapour;into|nitrogen compounds|pure oxygen|sand|acids;by|certain bacteria|wind|earthworms|temperature;usable by|plants|rocks|clouds|machines",
+"R~Respiration~What is respiration?~is the|breakdown of food|breathing in|making food|building bones;in|cells|lungs only|the nose|the ribs;releasing|energy|oxygen|glucose|sound",
+"R~Aerobic respiration~What is aerobic respiration?~takes place in|presence of oxygen|absence of oxygen|absence of water|presence of sand;releasing|a large amount of energy|a small amount of energy|no energy|only lactic acid;with products|CO₂, water and energy|lactic acid and energy|alcohol and CO₂|oxygen and energy",
+"R~Anaerobic respiration~What is anaerobic respiration?~takes place in|absence of oxygen|presence of oxygen|presence of water|sunlight;releasing|a small amount of energy|a large amount of energy|no energy|only oxygen;done by|yeast and some bacteria|humans only|green plants|most animals;in muscles forms|lactic acid|alcohol|oxygen|starch",
+"R~Breathing~What is breathing?~is taking in|oxygen-rich air|carbon dioxide|food|water;and giving out|carbon dioxide-rich air|oxygen-rich air|glucose|sweat;it is only|a part of respiration|all of respiration|digestion|circulation",
+"R~Bronchi~What are bronchi?~are the two|smaller tubes|ribs|lungs|nostrils;formed by division of|windpipe|diaphragm|food pipe|nose;one enters each|lung|nostril|rib|leaf",
+"R~Diaphragm~What is the diaphragm?~is a large|muscular sheet|bony plate|air tube|hair layer;forming the floor of|chest cavity|nasal cavity|stomach|skull",
+"R~Stomata~What are stomata?~are tiny|pores|hairs|roots|seeds;on the under surface of|leaves|ribs|gills|bones;for|gas exchange|making soil|holding roots|storing water",
+"R~Gills~How do fish breathe?~are made of|thread-like filaments|hard bones|soft lungs|long roots;rich in|blood vessels|sand|fat|stomata;take oxygen from|water|air|soil|sunlight",
+"R~Spiracles~How do insects breathe?~are tiny|openings|lungs|gills|roots;on the sides of the|body|leaf|head only|wings only;linked to air tubes called|tracheae|bronchi|filaments|ribs",
+"M~Motion~What is motion?~is a change in|position|colour|mass|shape;with respect to|time and surroundings|colour only|weight only|sound",
+"M~Speed~What is speed?~is the|distance covered|time taken|mass moved|force applied;in|unit time|any shape|one place|zero time;SI unit is|metre per second|kilogram per second|second only|metre only",
+"M~Uniform motion~What is uniform motion?~is motion in a|straight line|circle|zig-zag|loop;covering|equal distances|unequal distances|no distance|random distances;in|equal intervals of time|unequal times|any time|zero time;graph is a|straight line|curve|zig-zag|dot",
+"M~Time period~What is the time period?~is the time for|one oscillation|half a swing|ten swings|stopping;of a|pendulum|sundial|odometer|stopwatch;which is|constant|always changing|zero|infinite",
+"M~Sundial~What is a sundial?~measures|time of the day|speed|distance|mass;using the|shadow of a rod|light of a candle|flow of sand|water drops;fails on a|cloudy day or after sunset|sunny noon|clear morning|summer day",
+"M~Galileo Galilei~Who is Galileo?~was an|Italian astronomer|Dutch scientist|Greek thinker|English chemist;found that a|pendulum’s time period is constant|sundial is slow|speed is zero|time stops;by watching a|swinging lamp|falling apple|rolling ball|flowing river;and timing with his|pulse|stopwatch|sundial|odometer",
+"M~Christiaan Huygens~Who is Huygens?~was a|Dutch scientist|Italian monk|Greek king|French chef;who developed the first|pendulum clock|sundial|sand clock|stopwatch",
+"M~Speedometer~Speedometer and odometer~shows|speed in km/h|distance covered|time of the day|mass;while the odometer measures|distance covered|speed|time|mass",
+"M~Distance-time graph~What is a distance-time graph?~plots|distance against time|speed against mass|mass against force|heat against light;time goes on the|X-axis|Y-axis|origin|scale;distance goes on the|Y-axis|X-axis|origin|pointer;uniform motion gives|a straight line|a curve|a circle|a dot"
+];
+const K=RAW_K.map(r=>{const p=r.split("~");return{c:p[0],root:p[1],title:p[2],steps:p[3].split(";").map(s=>{const a=s.split("|");return{l:a[0],a:a[1],o:a.slice(1)}})}});
+
+/* ---------- Setup / storage ---------- */
+const URL_="https://script.google.com/macros/s/AKfycbypo-5ThjzEFYh1t-dlCp94v01kU1wpxnu1WCNKLDgxfA3KXuN8Nh7c_XdiBqhTAfyxGA/exec";
+const TM={S:[],R:[],M:[]},TK={S:[],R:[],M:[]};
+M.forEach((d,i)=>TM[d.c].push(i));K.forEach((d,i)=>TK[d.c].push(i));
+const app=document.getElementById("app"),$=id=>document.getElementById(id);
+let U=null,P={m:{},k:{},sent:{},t:{},sel:{}},CUR="S",lt=Date.now(),sending={};
+try{U=JSON.parse(localStorage.getItem('sci7-u'))}catch(e){}
+try{const s=JSON.parse(localStorage.getItem('sci7-p'));if(s)P=Object.assign(P,s)}catch(e){}
+const save=()=>{try{localStorage.setItem('sci7-p',JSON.stringify(P))}catch(e){}};
+const sh=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
+const ini=s=>`<u>${s[0]}</u>${s.slice(1)}`;
+const stars=n=>'★'.repeat(n)+'☆'.repeat(3-n);
+const cntDone=k=>TM[k].filter(i=>P.m[i]!=null).length+TK[k].filter(i=>P.k[i]!=null).length;
+const cntAll=k=>TM[k].length+TK[k].length;
+const complete=k=>cntDone(k)==cntAll(k);
+const addTime=k=>{P.t[k]=(P.t[k]||0)+Math.min(Math.round((Date.now()-lt)/1000),600);lt=Date.now()};
+
+/* ---------- Details form ---------- */
+function ask(){$('ov').hidden=false;$('fe').textContent='';if(U){$('fn').value=U.n;$('fc').value=U.c;$('fp').value=U.p}$('fn').focus()}
+$('fc').oninput=e=>e.target.value=e.target.value.replace(/\D/g,'');$('fp').oninput=e=>e.target.value=e.target.value.replace(/\D/g,'');
+$('f').onsubmit=e=>{e.preventDefault();const n=$('fn').value.trim(),c=$('fc').value.trim(),p=$('fp').value.trim(),m=$('fe');
+ if(!n){m.textContent='Please enter your name.';return}if(!/^\d{1,2}$/.test(c)){m.textContent='Please enter your class as a number, for example 7.';return}if(!/^\d{10}$/.test(p)){m.textContent='Please enter a 10-digit phone number.';return}
+ U={n,c,p};try{localStorage.setItem('sci7-u',JSON.stringify(U))}catch(x){}$('ov').hidden=true;menu()};
+
+/* ---------- Sending: ONLY when a whole chapter is complete ---------- */
+function tally(k){let s=0,t=0,good=[],rev=[];
+ TM[k].forEach(i=>{const v=P.m[i]||0;s+=v;t+=3;(v==3?good:rev).push(M[i].t)});
+ TK[k].forEach(i=>{const v=P.k[i]||0,n=K[i].steps.length;s+=v;t+=n;(v==n?good:rev).push(K[i].root)});
+ return{s,t,good,rev}}
+function push(k){
+ sending[k]=1;const r=tally(k),sec=P.t[k]||0;
+ const p={name:U.n,class:U.c,Class:U.c,className:U.c,studentClass:U.c,phone:U.p,Phone:U.p,quiz:"Science VII – "+CH[k][0]+" (Mnemonic + Keyword Chain)",score:String(r.s),total:String(r.t),percentage:(r.s/r.t*100).toFixed(1),timeTaken:String(sec),timeFormatted:Math.floor(sec/60)+"m "+sec%60+"s",topicsCorrect:r.good.join(", "),topicsRevise:r.rev.join(", "),photoAttached:"No",photoCount:"0"};
+ let fr=$('subFrame');if(!fr){fr=document.createElement('iframe');fr.name=fr.id='subFrame';fr.style.display='none';fr.setAttribute('aria-hidden','true');document.body.appendChild(fr)}
+ let fin=0,tm;const ok=()=>{if(fin)return;fin=1;clearTimeout(tm);fr.onload=null;P.sent[k]=1;save();delete sending[k];const e=$('st');if(e)e.textContent=`Chapter score ${r.s} / ${r.t} sent to your teacher ✓`};
+ tm=setTimeout(ok,60000);const t0=Date.now();fr.onload=()=>setTimeout(ok,Math.max(0,600-(Date.now()-t0)));
+ const f=document.createElement('form');f.method='POST';f.action=URL_;f.target='subFrame';f.style.display='none';
+ Object.keys(p).forEach(n=>{const i=document.createElement('input');i.type='hidden';i.name=n;i.value=p[n];f.appendChild(i)});
+ document.body.appendChild(f);f.submit();f.remove()}
+// returns status text for the result screen
+function checkChapter(k){
+ if(!complete(k))return `<p class="st">${cntDone(k)} of ${cntAll(k)} topics done in ${CH[k][0]} — finish all to send your score.</p>`;
+ if(P.sent[k])return `<p class="st" id="st">Chapter complete ✓ Score already sent.</p>`;
+ if(!sending[k])push(k);
+ return `<p class="st" id="st"><b>Chapter complete! 🎉</b> Sending chapter score…</p>`}
+function resend(k){push(k);chap(k)}
+
+/* ---------- Menu & chapter ---------- */
+function menu(){if(!U){ask();return}
+ let h=`<h1>Science · Class VII</h1><p class="sub">Mnemonics + Keyword Chain · choose a chapter</p><p class="who">${U.n} · Class ${U.c} <button class="link" onclick="ask()">Change</button></p>`;
+ for(const k in CH)h+=`<button class="chap" style="--c:${CH[k][1]}" onclick="chap('${k}')"><b>${CH[k][0]}</b><span>${cntDone(k)} of ${cntAll(k)} topics done${P.sent[k]?' · score sent ✓':''}</span></button>`;
+ app.innerHTML=h;window.scrollTo(0,0)}
+function chap(k){CUR=k;
+ const LM=TM[k],LK=TK[k];
+ let h=`<div style="--c:${CH[k][1]}"><div class="top"><button class="back" onclick="menu()">‹ Chapters</button><span class="hud">${cntDone(k)}/${cntAll(k)} done</span></div><h1>${CH[k][0]}</h1><p class="sub">Finish every topic in both activities. Your score is sent to your teacher once, when the whole chapter is complete.</p><div class="prog"><i style="width:${cntDone(k)/cntAll(k)*100}%"></i></div>`;
+ if(complete(k))h+=P.sent[k]?`<div class="banner">🎉 Chapter complete · score sent ✓</div>`:`<div class="banner wait">🎉 Chapter complete! ${sending[k]?'Sending score…':'Score not confirmed yet.'} <button class="link" onclick="resend('${k}')">Send again</button></div>`;
+ h+=`<div class="sec">1 · Mnemonic Quiz <small>${LM.filter(i=>P.m[i]!=null).length}/${LM.length}</small></div><button class="go" style="margin:6px 0" onclick="startM([${LM}])">▶ Play all mnemonics</button>`;
+ LM.forEach(i=>h+=`<button class="row${P.m[i]?' ok':''}" onclick="startM([${i}])"><span>${P.m[i]?'✓':'▶'}</span>${M[i].t}<b>${P.m[i]?stars(P.m[i]):'☆☆☆'}</b></button>`);
+ const dm=LM.filter(i=>P.m[i]!=null&&sel[i]!=null);
+ if(dm.length)h+=`<div class="sec">My mnemonics <small>${dm.length} done</small></div><div class="mgrid">${dm.map(i=>`<div class="mc"><small>${M[i].t}</small><div class="ma">${M[i].it.map(x=>x[0].toUpperCase()).join("")}</div><div class="ms">${M[i].m[sel[i]].w.join(" ")}</div><div class="mw">${M[i].it.map((x,n)=>`<div><b>${M[i].m[sel[i]].w[n]}</b> → ${x}</div>`).join("")}</div></div>`).join("")}</div>`;
+ h+=`<div class="sec">2 · Keyword Chain <small>${LK.filter(i=>P.k[i]!=null).length}/${LK.length}</small></div><p class="sub" style="margin:0">Finish a topic to unlock the next one.</p>`;
+ LK.forEach((i,n)=>{const ok=P.k[i]!=null,open=ok||n==0||P.k[LK[n-1]]!=null;h+=`<button class="row${ok?' ok':''}" ${open?`onclick="kplay(${i})"`:'disabled'}><span>${ok?'✓':open?'▶':'🔒'}</span>${K[i].root}</button>`});
+ app.innerHTML=h+'</div>';window.scrollTo(0,0)}
+
+/* ================= MNEMONIC QUIZ ================= */
+let Q,qi,score,streak,miss,tm,pos,hid;const sel=Object.assign({},P.sel||{});
+function startM(L){Q=[];tm={};L.forEach(i=>{tm[i]=0;Q.push({i,k:'pick'},{i,k:'ord'})});qi=0;score=0;streak=0;showM()}
+const sc=()=>{const e=$('sc');if(e){const n=TM[CUR].filter(i=>P.m[i]==null).length;e.textContent=n?`📚 ${n} left`:'📚 All done ✓'}};
+function bad(){miss++;tm[Q[qi].i]++;streak=0;sc()}
+function board(i){const m=M[i].m[sel[i]];return`<div class="q" style="margin:0 0 8px">Picture it:</div><div class="board">${m.w.map((x,n)=>`<div class="pr" style="--n:${n}"><span class="em">${m.e[n]}</span><span class="w">${ini(x)}</span><span class="it">${ini(M[i].it[n])}</span></div>`).join("")}</div>`}
+function showM(){
+ if(qi>=Q.length)return finM();
+ const s=Q[qi],d=M[s.i];miss=0;if(s.k=="pick")lt=Date.now();
+ const R=s.k=="pick"?"Round 1 · Choose your mnemonic":"Round 2 · The test: build the list";
+ let h=`<div style="--c:${CH[d.c][1]}"><div class="top"><button class="back" onclick="chap('${d.c}')">‹ Exit</button><span class="hud" id="sc"></span><div class="abbr">${d.it.map(x=>x[0].toUpperCase()).join("")}</div></div><div class="prog"><i style="width:${qi/Q.length*100}%"></i></div>`;
+ const old=TM[d.c].filter(i=>i!=s.i&&P.m[i]!=null&&sel[i]!=null);
+ h+=`<div class="mlay${old.length?'':' solo'}${sideMin?' smin':''}" id="mlay">${old.length?sideHtml(old):''}<div class="mmain"><div class="tt">${d.t}<small>${R}</small></div>`;
+ if(s.k=="pick"){
+  h+=`<div class="q">${d.q}</div><ol class="list">${d.it.map(x=>`<li>${x}</li>`).join("")}</ol><div class="ask">All five mnemonics work. Pick the one that sticks best for you. Then the test begins!</div><div class="opts">`;
+  d.m.forEach((m,k)=>h+=`<button class="opt" onclick="choose(${k})">${m.w.join(" ")}<small class="em2">${m.e.join(" ")}</small></button>`);h+='</div>'}
+ else{
+  const m=d.m[sel[s.i]];pos=0;hid=0;
+  h+=`<div class="q">Your mnemonic: <b>${m.w.join(" ")}</b><br>Build the list in order.</div><div class="board" id="bd">${m.w.map((x,n)=>`<div class="pr"><span class="em">${m.e[n]}</span><span class="w">${ini(x)}</span><span class="it" id="sl${n}">?</span></div>`).join("")}</div><button class="back" id="hb" style="margin-top:10px" onclick="hide()">🙈 Hide mnemonic (try from memory)</button><div class="ask">Tap the items in the right order</div><div class="chips">`;
+  sh(d.it).forEach(t=>h+=`<button class="chip" onclick="tap(this)">${t}</button>`);h+='</div>'}
+ app.innerHTML=h+'<div id="out"></div></div></div></div>';sc();window.scrollTo(0,0)}
+let sideMin=false;
+const sideHtml=old=>`<aside class="side"><button class="sbt" onclick="toggleSide()" aria-label="Show or hide my earlier mnemonics"><span id="sbi">${sideMin?'›':'‹'}</span><span class="l"> My mnemonics</span></button>${old.map(i=>`<div class="mc"><small>${M[i].t}</small><div class="ma">${M[i].it.map(x=>x[0].toUpperCase()).join("")}</div><div class="ms">${M[i].m[sel[i]].w.join(" ")}</div></div>`).join("")}</aside>`;
+function toggleSide(){sideMin=!sideMin;$('mlay').classList.toggle('smin',sideMin);$('sbi').textContent=sideMin?'›':'‹'}
+function choose(k){sel[Q[qi].i]=k;P.sel=P.sel||{};P.sel[Q[qi].i]=k;save();qi++;showM()}
+function hide(){hid=1;$('bd').classList.add('hid');$('hb').disabled=true}
+function tap(b){const d=M[Q[qi].i];
+ if(b.textContent==d.it[pos]){const e=$('sl'+pos);e.textContent=b.textContent;e.classList.add('fill');b.disabled=true;pos++;if(pos==d.it.length)goodM()}
+ else{bad();b.classList.add('bad');setTimeout(()=>b.classList.remove('bad'),400)}}
+function goodM(){
+ const s=Q[qi],d=M[s.i],first=!miss,nxt=Q[qi+1],LL=TM[d.c],nm=LL[LL.indexOf(s.i)+1];
+  const m=tm[s.i],n=m==0?3:m<=2?2:1;P.m[s.i]=Math.max(P.m[s.i]||0,n);addTime(d.c);save();sc();
+ const status=checkChapter(d.c);
+ $('out').innerHTML=`<div class="res"><h3>Topic complete! <span class="stars">${stars(n)}</span></h3><p>${first?'First try! 🎯':'Completed ✓'}</p>${board(s.i)}${status}</div>${nxt?`<button class="go" onclick="qi++;showM()">Next mnemonic</button>`:nm!=null?`<button class="go" onclick="startM([${nm}])">Next mnemonic</button>`:`<button class="go" onclick="chap('${d.c}')">Finish</button>`}`;
+ $('out').scrollIntoView({behavior:"smooth",block:"nearest"})}
+function finM(){
+ const L=[...new Set(Q.map(s=>s.i))];
+ app.innerHTML=`<div style="--c:${CH[CUR][1]}"><h1>Well done!</h1><div class="big">⭐ ${score} points</div><div class="res">${L.map(i=>`<p>${M[i].t} <span class="stars">${stars(P.m[i]||0)}</span></p>`).join("")}</div></div>`;window.scrollTo(0,0)}
+
+/* ================= KEYWORD CHAIN ================= */
+let G;
+function kplay(i){lt=Date.now();G={i,s:0,m:0,first:0,got:[],lock:0};kdraw()}
+function kdraw(){G.lock=0;
+ const d=K[G.i],c=CH[d.c][1],st=d.steps[G.s];
+ let b=`<span class="node root">${d.root}</span>`;
+ G.got.forEach((g,k)=>{b+=`<span class="arr"><b>${d.steps[k].l}</b><span class="ln"></span></span><span class="node">${g}</span>`});
+ const fin=G.s>=d.steps.length;
+ if(!fin)b+=`<span class="arr q"><b>${st.l} ?</b><span class="ln"></span></span>`;
+ let h=`<div style="--c:${c}"><div class="top"><button class="back" onclick="chap('${d.c}')">‹ Topics</button><span class="hud">Step ${Math.min(G.s+1,d.steps.length)} of ${d.steps.length}</span></div>
+ <div class="tt">${d.title}</div><div class="prog"><i style="width:${G.s/d.steps.length*100}%"></i></div><div class="kboard">${b}</div>`;
+ if(!fin){h+=`<div class="ask"><span>${G.got.length?G.got[G.got.length-1]:d.root}</span> ${st.l} … ?</div><div class="opts">`;
+  sh(st.o).forEach(o=>h+=`<button class="opt" data-a="${o===st.a?1:0}" onclick="kpick(this)">${o}</button>`);h+='</div>'}
+ else{const n=d.steps.length,sent=d.root+" "+d.steps.map(s=>s.l+" "+s.a).join(" ")+".",L=TK[d.c],nx=L[L.indexOf(G.i)+1];
+  P.k[G.i]=Math.max(P.k[G.i]||0,G.first);addTime(d.c);save();
+  const status=checkChapter(d.c);
+  h+=`<div class="end"><h3>${G.first==n?'Perfect chain! ⭐':'Chain complete! 👏'}</h3><p><b>${G.first}</b> of ${n} keywords right on the first try.</p><p>${sent}</p>${status}
+  <button class="go" onclick="kplay(${G.i})">Play again</button><button class="go" onclick="${nx!=null?`kplay(${nx})`:`chap('${d.c}')`}">${nx!=null?'Next topic':'Back to chapter'}</button></div>`}
+ app.innerHTML=h+'</div>';window.scrollTo(0,0)}
+function kpick(el){if(G.lock)return;
+ if(el.dataset.a=="1"){G.lock=1;const st=K[G.i].steps[G.s];if(!G.m)G.first++;G.m=0;G.got.push(st.a);G.s++;el.classList.add("good");setTimeout(kdraw,450)}
+ else{G.m++;el.classList.add("bad")}}
+
+menu();
+</script></body></html>
