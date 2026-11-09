@@ -33,6 +33,7 @@ button{font:inherit;color:inherit;cursor:pointer;touch-action:manipulation}
 .ask{margin:14px 0 8px;color:var(--mut);font-weight:500}.ask span{color:var(--ink);font-weight:600}
 .opts{display:grid;gap:10px}
 .opt{background:var(--card);border:2px solid var(--line);border-radius:12px;padding:14px;text-align:left;font-weight:600;font-size:1.05rem;min-height:54px}
+.opt.mk{letter-spacing:.1em;word-spacing:.15em;overflow-wrap:anywhere}
 .opt:active{border-color:var(--c)}
 .opt small{display:block;font-weight:400;font-size:.88rem;margin-top:4px}
 .opt small.em2{font-size:1.4rem;letter-spacing:4px;margin-top:6px}
@@ -150,6 +151,23 @@ const RAW_K=[
 ];
 const K=RAW_K.map(r=>{const p=r.split("~");return{c:p[0],root:p[1],title:p[2],steps:p[3].split(";").map(s=>{const a=s.split("|");return{l:a[0],a:a[1],o:a.slice(1)}})}});
 
+/* ---------- Partial-letter hints for Keyword Chain options ---------- */
+/* Keeps the first and last letter of every word, hides some of the letters in between
+   (e.g. "Earth’s crust" -> "E__t_s c_s_t"). Punctuation, digits and subscripts stay visible.
+   Deterministic: the same option always shows the same hint. */
+const isL=ch=>/\p{L}/u.test(ch);
+function maskWord(w,seed){
+ const ch=Array.from(w),idx=[];ch.forEach((c,i)=>{if(isL(c))idx.push(i)});
+ const n=idx.length;if(n<=2)return w;
+ let h=seed;for(const c of w)h=(h*31+c.charCodeAt(0))>>>0;
+ const hide=new Array(n).fill(false);let cnt=0;
+ for(let k=1;k<n-1;k++){if((k+h)%3!==0){hide[k]=true;cnt++}}
+ if(!cnt){hide[Math.floor(n/2)]=true}                 // always hide at least one letter
+ else if(n>=5&&cnt==n-2){hide[1+(h%(n-2))]=false}      // keep at least one middle letter on longer words
+ let out=ch.slice();idx.forEach((pos,k)=>{if(hide[k])out[pos]="_"});
+ return out.join("")}
+const maskText=s=>s.split(" ").map((w,i)=>maskWord(w,i+1)).join(" ");
+
 /* ---------- Setup / storage ---------- */
 const URL_="https://script.google.com/macros/s/AKfycbypo-5ThjzEFYh1t-dlCp94v01kU1wpxnu1WCNKLDgxfA3KXuN8Nh7c_XdiBqhTAfyxGA/exec";
 const TM={S:[],R:[],M:[]},TK={S:[],R:[],M:[]};
@@ -266,7 +284,7 @@ function kdraw(){G.lock=0;
  let h=`<div style="--c:${c}"><div class="top"><button class="back" onclick="chap('${d.c}')">‹ Topics</button><span class="hud">Step ${Math.min(G.s+1,d.steps.length)} of ${d.steps.length}</span></div>
  <div class="tt">${d.title}</div><div class="prog"><i style="width:${G.s/d.steps.length*100}%"></i></div><div class="kboard">${b}</div>`;
  if(!fin){h+=`<div class="ask"><span>${G.got.length?G.got[G.got.length-1]:d.root}</span> ${st.l} … ?</div><div class="opts">`;
-  sh(st.o).forEach(o=>h+=`<button class="opt" data-a="${o===st.a?1:0}" onclick="kpick(this)">${o}</button>`);h+='</div>'}
+  sh(st.o).forEach(o=>h+=`<button class="opt mk" data-a="${o===st.a?1:0}" onclick="kpick(this)">${maskText(o)}</button>`);h+='</div>'}
  else{const n=d.steps.length,sent=d.root+" "+d.steps.map(s=>s.l+" "+s.a).join(" ")+".",L=TK[d.c],nx=L[L.indexOf(G.i)+1];
   P.k[G.i]=Math.max(P.k[G.i]||0,G.first);addTime(d.c);save();
   const status=checkChapter(d.c);
