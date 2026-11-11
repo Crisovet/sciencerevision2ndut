@@ -81,12 +81,15 @@ u{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:
 .kboard{background:var(--card);border-radius:16px;padding:14px 10px;display:flex;flex-wrap:wrap;align-items:center;row-gap:18px;min-height:110px}
 .node{background:var(--key);color:var(--keyi);font-weight:600;padding:8px 12px;border-radius:12px;box-shadow:0 3px 0 rgba(0,0,0,.18);animation:pop .35s;font-size:.98rem}
 .node.root{background:var(--c);color:#fff;font-size:1.05rem}
-.arr{display:flex;flex-direction:column;align-items:center;min-width:72px;padding:0 4px}
-.arr b{font-size:.78rem;font-weight:500;color:var(--mut);text-align:center;line-height:1.1;margin-bottom:3px}
-.arr .ln{position:relative;width:100%;height:3px;background:var(--ink);border-radius:2px}
-.arr .ln:after{content:"";position:absolute;right:-2px;top:-5px;border-left:10px solid var(--ink);border-top:6.5px solid transparent;border-bottom:6.5px solid transparent}
-.arr.q b{color:var(--c);font-weight:600;font-size:.92rem}
-.arr.q .ln{background:repeating-linear-gradient(90deg,var(--c) 0 6px,transparent 6px 10px)}.arr.q .ln:after{border-left-color:var(--c)}
+.arr{display:flex;flex-direction:column;align-items:center;min-width:92px;padding:0 4px}
+.arr{--L:#0b8f8c}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .arr{--L:#3cc9c4}}
+:root[data-theme="dark"] .arr{--L:#3cc9c4}
+.arr b{font-size:1.15rem;font-weight:600;color:var(--L);background:color-mix(in srgb,var(--L) 14%,var(--card));border:2px solid var(--L);border-radius:999px;padding:3px 12px;text-align:center;line-height:1.2;margin-bottom:6px;white-space:nowrap}
+.arr .ln{position:relative;width:100%;height:4px;background:var(--ink);border-radius:2px}
+.arr .ln:after{content:"";position:absolute;right:-2px;top:-6px;border-left:12px solid var(--ink);border-top:8px solid transparent;border-bottom:8px solid transparent}
+.arr.q b{color:#fff;background:var(--L);font-weight:600;font-size:1.2rem}
+.arr.q .ln{background:repeating-linear-gradient(90deg,var(--L) 0 6px,transparent 6px 10px)}.arr.q .ln:after{border-left-color:var(--L)}
 /* modal */
 [hidden]{display:none!important}
 .ov{position:fixed;inset:0;z-index:50;background:rgba(10,16,28,.65);display:grid;place-items:center;padding:16px;overflow-y:auto}
@@ -96,7 +99,7 @@ u{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:
 .ph{display:flex;border:2px solid var(--line);border-radius:10px;overflow:hidden;background:var(--bg)}.ph i{font-style:normal;padding:11px 12px;background:var(--key);color:var(--keyi);font-weight:600}.ph input{border:0;border-radius:0;background:transparent}
 .err{color:var(--bad)!important;font-weight:600;min-height:1.3em}
 .mod .go{background:var(--M);margin:6px 0 0;padding:14px 18px;font-size:1.1rem;width:100%}
-@media(max-width:380px){.em{font-size:2rem}.w{font-size:.92rem;padding:5px 9px}.arr{min-width:62px}}
+@media(max-width:380px){.em{font-size:2rem}.w{font-size:.92rem;padding:5px 9px}.arr{min-width:78px}.arr b{font-size:1rem;padding:2px 9px}.arr.q b{font-size:1.05rem}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style></head><body><main id="app"></main>
 <div class="ov" id="ov" hidden><form class="mod" id="f" novalidate><h2>Before you begin</h2><p>Enter your details to start.</p><label>Name<input id="fn" autocomplete="name" placeholder="Full name"></label><label>Class<input id="fc" inputmode="numeric" maxlength="2" placeholder="e.g. 7"></label><label>Phone Number<span class="ph"><i>+91</i><input id="fp" type="tel" inputmode="numeric" maxlength="10" placeholder="10-digit mobile number"></span></label><p class="err" id="fe" role="alert"></p><button class="go">Start</button></form></div>
@@ -152,18 +155,18 @@ const RAW_K=[
 const K=RAW_K.map(r=>{const p=r.split("~");return{c:p[0],root:p[1],title:p[2],steps:p[3].split(";").map(s=>{const a=s.split("|");return{l:a[0],a:a[1],o:a.slice(1)}})}});
 
 /* ---------- Partial-letter hints for Keyword Chain options ---------- */
-/* Keeps the first and last letter of every word, hides some of the letters in between
-   (e.g. "Earth’s crust" -> "E__t_s c_s_t"). Punctuation, digits and subscripts stay visible.
+/* Keeps the first TWO letters and the last letter of every word, hides some of the letters
+   in between (e.g. "Earth’s crust" -> "Ea__’s cr__t"). Punctuation, digits and subscripts stay visible.
    Deterministic: the same option always shows the same hint. */
 const isL=ch=>/\p{L}/u.test(ch);
 function maskWord(w,seed){
  const ch=Array.from(w),idx=[];ch.forEach((c,i)=>{if(isL(c))idx.push(i)});
- const n=idx.length;if(n<=2)return w;
+ const n=idx.length;if(n<=3)return w;                  // too short to hide anything
  let h=seed;for(const c of w)h=(h*31+c.charCodeAt(0))>>>0;
  const hide=new Array(n).fill(false);let cnt=0;
- for(let k=1;k<n-1;k++){if((k+h)%3!==0){hide[k]=true;cnt++}}
- if(!cnt){hide[Math.floor(n/2)]=true}                 // always hide at least one letter
- else if(n>=5&&cnt==n-2){hide[1+(h%(n-2))]=false}      // keep at least one middle letter on longer words
+ for(let k=2;k<n-1;k++){if((k+h)%3!==0){hide[k]=true;cnt++}}
+ if(!cnt){hide[2]=true}                                // always hide at least one letter
+ else if(n>=6&&cnt==n-3){hide[2+(h%(n-3))]=false}      // keep at least one middle letter on longer words
  let out=ch.slice();idx.forEach((pos,k)=>{if(hide[k])out[pos]="_"});
  return out.join("")}
 const maskText=s=>s.split(" ").map((w,i)=>maskWord(w,i+1)).join(" ");
